@@ -107,7 +107,7 @@ identifier = "automate"
 
     [[automate]]
     title = "High Availability"
-    identifier = "automate/install/high_availability"
+    identifier = "automate/install/ha"
     parent = "automate/install"  
 
   [[automate]]
