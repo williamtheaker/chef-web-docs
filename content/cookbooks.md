@@ -46,12 +46,12 @@ A cookbook is comprised of recipes and other optional components as files or dir
 <tr>
 <td><a href="/recipes/">Recipes</a></td>
 <td>recipes/</td>
-<td>{{< readFile_shortcode file_path="layouts/shortcodes/cookbooks_recipe.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/cookbooks_recipe.md" >}}</td>
 </tr>
 <tr>
 <td><a href="/attributes/">Attributes</a></td>
 <td>attributes/</td>
-<td>{{< readFile_shortcode file_path="layouts/shortcodes/cookbooks_attribute.md" >}}</td>
+<td>{{< readfile file="layouts/shortcodes/cookbooks_attribute.md" >}}</td>
 </tr>
 <tr>
 <td><a href="/files/">Files</a></td>
@@ -126,4 +126,23 @@ Chef maintains a large collection of cookbooks. In addition, there are thousands
 
 Use the [chef generate cookbook subcommand](/workstation/ctl_chef/#chef-generate-cookbook) to generate a cookbook.
 
-{{% cookbooks_content %}}
+A cookbook generated with`chef generate cookbook custom_web` creates a cookbook named `custom_web` with the directory structure:
+
+```text
+. cookbooks
+  - custom_web
+    - recipes
+      - default.rb
+    - test
+      - integration
+        - default
+          - default_test.rb
+    - .gitignore
+    - CHANGELOG.md
+    - chefignore
+    - kitchen.yml
+    - LICENSE
+    - metadata.rb
+    - Policyfile.rb
+    - README.md
+```

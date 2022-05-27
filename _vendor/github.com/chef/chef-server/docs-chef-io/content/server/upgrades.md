@@ -42,7 +42,7 @@ Supported Release
 ### Upgrading to 14.x
 
 Chef Infra Server 14.0 moved from Solr to Elasticsearch as its search index.
-{{% server_upgrade_duration %}}
+{{% chef-server/server_upgrade_duration %}}
 
 The Chef Infra Server 14 upgrade does not automatically reindex existing external Elasticsearch installations.
 
@@ -52,6 +52,7 @@ Chef Infra Server 14.14 supports external OpenSearch for indexing. Please follow
 
 #### Steps To Enable External OpenSearch
 
+1. Set the `elasticsearch['enable']` attribute to `false`.
 1. Set the `opensearch['external']` attribute to `true`.
 1. Set the `opensearch['external_url']` attribute to the external OpenSearch URL.
 1. Set the `opscode_erchef['search_queue_mode']` attribute to `batch`.
@@ -62,12 +63,13 @@ Chef Infra Server 14.14 supports external OpenSearch for indexing. Please follow
 For example:
 
 ```bash
+elasticsearch['enable'] = false
 opscode_erchef['search_queue_mode'] = 'batch'
 opscode_erchef['search_provider'] = 'opensearch'
 opensearch['external'] = true
 opensearch['external_url'] = "http://127.0.0.1:9200"
-opscode_erchef['search_auth_username'] = 'OPEN_SEARCH_USER'
-opscode_erchef['search_auth_password'] = 'OPEN_SEARCH_PWD'
+opscode_erchef['search_auth_username'] = "OPEN_SEARCH_USER"
+opscode_erchef['search_auth_password'] = "OPEN_SEARCH_PWD"
 ```
 
 #### Steps To Migrate from Elasticsearch to External OpenSearch
@@ -121,7 +123,7 @@ Set the `postgresql['pg_upgrade_timeout']` attribute in [chef-server.rb]({{< rel
        vacuumdb: vacuuming database "template1"
     ```
 
-{{% server_analyze_postgresql_db %}}
+{{% chef-server/server_analyze_postgresql_db %}}
 
 1. Back up the PostgreSQL database before upgrading so you can restore the full database to a previous release in the event of a failure. See [Backup and Restore]({{< relref "server_backup_restore" >}}) for more information.
 
@@ -155,7 +157,7 @@ If you are running a Chef Infra Server release before 12.3.0, please contact Che
 
 ### Standalone Server
 
-{{% server_upgrade_duration %}}
+{{% chef-server/server_upgrade_duration %}}
 
 1. Run `vacuumdb` before starting the upgrade:
 
@@ -265,7 +267,7 @@ If you are running a Chef Infra Server release before 12.3.0, please contact Che
    reindexdb: reindexing database "template1"
    ```
 
-{{% server_analyze_postgresql_db %}}
+{{% chef-server/server_analyze_postgresql_db %}}
 
 You are now finished with the upgrade.
 
@@ -514,7 +516,7 @@ The following External PostgreSQL upgrade steps are provided as a courtesy only.
    reindexdb: reindexing database "template1"
    ```
 
-{{% server_analyze_postgresql_db %}}
+{{% chef-server/server_analyze_postgresql_db %}}
 
 1. Log into the Chef Infra Server machine.
 
@@ -558,7 +560,7 @@ The following External PostgreSQL upgrade steps are provided as a courtesy only.
 
 ### Chef Backend Install
 
-{{% EOL_backend %}}
+{{% chef-server/EOL_backend %}}
 
 The Chef Infra Server can operate in a high availability configuration that provides automated load balancing and failover for stateful components in the system architecture.
 
