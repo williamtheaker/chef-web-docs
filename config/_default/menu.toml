@@ -9,12 +9,6 @@
 # weight = 5
 
 [[main]]
-title = "Join Us: Chef MEGA Launch"
-identifier = "chefconf"
-url = "https://www.chef.io/webinars/join-us!-chef-product-mega-launch"
-weight = 5
-
-[[main]]
 title = "Chef.io"
 identifier = "chef"
 url = "https://www.chef.io/"
@@ -131,6 +125,11 @@ identifier = "automate"
     [[automate]]
     title = "Elasticsearch"
     identifier = "automate/configuring_automate/elasticsearch"
+    parent = "automate/configuring_automate"
+
+    [[automate]]
+    title = "OpenSearch"
+    identifier = "automate/configuring_automate/opensearch"
     parent = "automate/configuring_automate"
 
   [[automate]]
