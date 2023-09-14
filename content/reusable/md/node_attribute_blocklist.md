@@ -1,22 +1,22 @@
-Attributes that should not be saved by a node may be blocklisted in the [client.rb](/config_rb_client/) file. The blocklist is a Hash of keys that specify each attribute to be filtered out.
+Attributes that should not be saved by a node may be blocklisted in the [client.rb](/config_rb_client/) file. The blocklist is an array of keys that specify each attribute to be filtered out.
 
 Attributes are blocklisted by attribute type, with each attribute type being blocklisted independently. Each attribute type---`automatic`, `default`, `normal`, and `override`---may define blocklists by using the following settings in the client.rb file:
 
 `blocked_automatic_attributes`
 
-: A hash that blocklists `automatic` attributes, preventing blocklisted attributes from being saved. For example: `['network/interfaces/eth0']`. Default value: `nil`, all attributes are saved. If the array is empty, all attributes are saved.
+: An array that blocklists `automatic` attributes, preventing blocklisted attributes from being saved. For example: `['network/interfaces/eth0']`. Default value: `nil`, all attributes are saved. If the array is empty, all attributes are saved.
 
 `blocked_default_attributes`
 
-: A hash that blocklists `default` attributes, preventing blocklisted attributes from being saved. For example: `['filesystem/dev/disk0s2/size']`. Default value: `nil`, all attributes are saved. If the array is empty, all attributes are saved.
+: An array that blocklists `default` attributes, preventing blocklisted attributes from being saved. For example: `['filesystem/dev/disk0s2/size']`. Default value: `nil`, all attributes are saved. If the array is empty, all attributes are saved.
 
 `blocked_normal_attributes`
 
-: A hash that blocklists `normal` attributes, preventing blocklisted attributes from being saved. For example: `['filesystem/dev/disk0s2/size']`. Default value: `nil`, all attributes are saved. If the array is empty, all attributes are saved.
+: An array that blocklists `normal` attributes, preventing blocklisted attributes from being saved. For example: `['filesystem/dev/disk0s2/size']`. Default value: `nil`, all attributes are saved. If the array is empty, all attributes are saved.
 
 `blocked_override_attributes`
 
-: A hash that blocklists `override` attributes, preventing blocklisted attributes from being saved. For example: `['map - autohome/size']`. Default value: `nil`, all attributes are saved. If the array is empty, all attributes are saved.
+: An array that blocklists `override` attributes, preventing blocklisted attributes from being saved. For example: `['map - autohome/size']`. Default value: `nil`, all attributes are saved. If the array is empty, all attributes are saved.
 
 <!-- markdownlint-disable-file MD002 -->
 
